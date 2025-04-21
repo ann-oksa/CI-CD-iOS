@@ -24,13 +24,13 @@ class ViewController: UIViewController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        if Crashlytics.crashlytics().didCrashDuringPreviousExecution() {
-                let alert = UIAlertController(title: "Oops",
-                                              message: "Sorry about that, an error occurred.",
-                                              preferredStyle: .alert)
-                alert.addAction(UIAlertAction(title: "It's cool", style: .default, handler: nil))
-                self.present(alert, animated: true, completion: nil)
-            }
+//        if Crashlytics.crashlytics().didCrashDuringPreviousExecution() {
+//                let alert = UIAlertController(title: "Oops",
+//                                              message: "Sorry about that, an error occurred.",
+//                                              preferredStyle: .alert)
+//                alert.addAction(UIAlertAction(title: "It's cool", style: .default, handler: nil))
+//                self.present(alert, animated: true, completion: nil)
+//            }
     }
     
     func calculateRetirementAmount(current_age: Int, retirement_age : Int, monthly_investment: Float, current_savings: Float, interest_rate: Float) -> Double {
@@ -61,7 +61,7 @@ class ViewController: UIViewController {
         let properties = ["current_age": String(current_age!),
                           "planned_retirement_age": String(planned_retirement_age!)]
         
-        Analytics.logEvent("navigated_to_calculator", parameters: nil)
+//        Analytics.logEvent("navigated_to_calculator", parameters: nil)
     }
     
 }
