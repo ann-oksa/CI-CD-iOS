@@ -7,8 +7,7 @@
 //
 
 import UIKit
-import AppCenterCrashes
-import AppCenterAnalytics
+import Firebase
 
 class ViewController: UIViewController {
 
@@ -25,13 +24,13 @@ class ViewController: UIViewController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        if MSCrashes.hasCrashedInLastSession() {
-            let alert = UIAlertController(title: "Oops", message: "Sorry about that, an error occured.", preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "It's cool", style: .default, handler: nil))
-            self.present(alert, animated: true, completion: nil)
-        }
-        
-        MSAnalytics.trackEvent("navigated_to_calculator")
+        if Crashlytics.crashlytics().didCrashDuringPreviousExecution() {
+                let alert = UIAlertController(title: "Oops",
+                                              message: "Sorry about that, an error occurred.",
+                                              preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "It's cool", style: .default, handler: nil))
+                self.present(alert, animated: true, completion: nil)
+            }
     }
     
     func calculateRetirementAmount(current_age: Int, retirement_age : Int, monthly_investment: Float, current_savings: Float, interest_rate: Float) -> Double {
@@ -62,7 +61,7 @@ class ViewController: UIViewController {
         let properties = ["current_age": String(current_age!),
                           "planned_retirement_age": String(planned_retirement_age!)]
         
-        MSAnalytics.trackEvent("calculate_retirement_amount", withProperties: properties)
+        Analytics.logEvent("navigated_to_calculator", parameters: nil)
     }
     
 }
