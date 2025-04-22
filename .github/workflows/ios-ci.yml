@@ -24,11 +24,11 @@ jobs:
           sudo gem install cocoapods
           pod install
 
-      - name: Build app
+      - name: Build for Simulator
         run: |
-          xcodebuild -workspace RetirementCalculator.xcworkspace \
-                     -scheme RetirementCalculator \
-                     -sdk iphonesimulator \
-                     -destination 'platform=iOS Simulator,name=iPhone 14' \
-                     clean build
+            xcodebuild -workspace RetirementCalculator.xcworkspace \
+               -scheme RetirementCalculator \
+               -sdk iphonesimulator \
+               -destination 'platform=iOS Simulator,name=iPhone 14' \
+               clean build CODE_SIGNING_ALLOWED=NO
 
