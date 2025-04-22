@@ -58,9 +58,9 @@ class ViewController: UIViewController {
         
         resultLabel.text = "If you save $\(monthly_investment!) every month for \(planned_retirement_age! - current_age!) years, and invest that money plus your current investment of $\(current_savings!) at a \(interest_rate!)% anual interest rate, you will have $\(retirement_amount) by the time you are \(planned_retirement_age!) years old."
         
-        let properties = ["current_age": String(current_age!),
-                          "planned_retirement_age": String(planned_retirement_age!)]
-        
+//        let properties = ["current_age": String(current_age!),
+//                          "planned_retirement_age": String(planned_retirement_age!)]
+//        
 //        Analytics.logEvent("navigated_to_calculator", parameters: nil)
     }
     
